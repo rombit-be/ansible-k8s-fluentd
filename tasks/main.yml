@@ -1,0 +1,8 @@
+---
+- name: Prepare fluentd DaemonSet file
+  template:
+    src: fluentd.yml.j2
+    dest: ./kubernetesconfigs/fluentd.yml
+
+- name: Deploy elasticsearch logging service
+  command: "kubectl apply -f ./kubernetesconfigs/fluentd.yml"
