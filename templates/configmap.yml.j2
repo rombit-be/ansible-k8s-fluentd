@@ -121,15 +121,6 @@ data:
       type tail
       format kubernetes
       multiline_flush_interval 5s
-      path /var/log/kube-apiserver.log
-      pos_file /var/log/fluentd-kube-apiserver.log.pos
-      tag kube-apiserver
-    </source>
-
-    <source>
-      type tail
-      format kubernetes
-      multiline_flush_interval 5s
       path /var/log/kube-controller-manager.log
       pos_file /var/log/fluentd-kube-controller-manager.log.pos
       tag kube-controller-manager
