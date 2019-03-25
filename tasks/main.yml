@@ -1,8 +1,15 @@
----
+- name: Prepare fluentd ConfigMap file
+  template:
+    src: configmap.yml.j2
+    dest: ./kubernetesconfigs/fluentd-configmap.yml
+
 - name: Prepare fluentd DaemonSet file
   template:
     src: fluentd.yml.j2
     dest: ./kubernetesconfigs/fluentd.yml
 
-- name: Deploy elasticsearch logging service
+- name: Deploy fluentd configmap
+  command: "kubectl apply -f ./kubernetesconfigs/fluentd-configmap.yml"
+
+- name: Deploy fluentd
   command: "kubectl apply -f ./kubernetesconfigs/fluentd.yml"
