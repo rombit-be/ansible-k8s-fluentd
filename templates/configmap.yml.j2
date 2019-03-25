@@ -166,6 +166,13 @@ data:
       type kubernetes_metadata
     </filter>
 
+    <filter **>
+      @type concat
+      key log
+      multiline_end_regexp /\n$/
+      separator ""
+    </filter>
+
     <filter kubernetes.var.log.containers.nginx-ingress-controller-**>
       # https://github.com/kubernetes/ingress/tree/master/controllers/nginx#log-format
       type parser

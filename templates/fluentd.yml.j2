@@ -57,7 +57,7 @@ spec:
       serviceAccountName: fluentd
       containers:
       - name: fluentd
-        image: fluent/fluentd-kubernetes-daemonset:v1.1-debian-elasticsearch
+        image: registry.romcore.cloud/fluentd-elasticsearch:0.0.2
         env:
           - name:  FLUENT_ELASTICSEARCH_HOST
             value: "{{ elasticsearch_service_name }}"
